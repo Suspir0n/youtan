@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # APP LOCAL
+    'companies.apps.CompaniesConfig'
     # APP EXTERNAL
 ]
 
