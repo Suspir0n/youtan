@@ -3,5 +3,5 @@ from companies.views import dashboardView, detailsView
 
 urlpatterns = [
     path('', dashboardView, name='dashboard'),
-    path('details', detailsView, name='details')
+    path('details/<int:companie_id>', detailsView, name='details')
 ]

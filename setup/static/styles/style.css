@@ -1,0 +1,58 @@
+.navbar-expand-lg {
+    background-color: #6abd47;
+}
+
+.navbar-expand-lg .navbar-brand {
+    font-size: 40px;
+}
+
+.navbar-expand-lg .nav-link {
+    font-size: 14px;
+}
+
+.navbar-expand-lg .navbar-brand,
+.navbar-expand-lg .nav-link,
+.navbar-expand-lg .navbar-text  {
+    padding-left: 4rem;
+    padding-right: 2rem;
+    color: #fff;
+}
+
+.new {
+    margin-top: 10rem;
+    margin-right: 15rem;
+}
+
+.card-dashboard {
+    width: 70rem;
+    margin-top: 3rem;
+    margin-left: 15rem;
+    margin-right: 15rem;
+}
+
+.card-details {
+    width: 50rem;
+    margin-top: 1rem;
+    margin-left: 5rem;
+    margin-right: 5rem;
+}
+
+.container-data {
+    margin-top: 10rem;
+    margin-left: 5rem;
+    margim-bottom: 5rem;
+}
+
+.btn-detail {
+    margin-top: 3rem;
+    margin-left: 30rem;
+}
+
+.btn-remove {
+    margin-right: 38rem;
+}
+
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+    background-color: #35558D !important;
+    border-color: #35558D !important;
+}

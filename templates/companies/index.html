@@ -1,10 +1,45 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-  <h1>Dashboard</h1>
-</body>
-</html>
+{% extends 'companies/base.html' %}
+{% load static %}
+{% block content %}
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+      <button class="btn btn-primary new p-3" type="button">Novo</button>
+    </div>
+    <div class="card card-dashboard">
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table">
+             <tbody>
+                {% if companies %}
+                    {% for companie in companies %}
+                        <tr>
+                          <td style="width: 55rem;">{{ companie.name }}</td>
+                          {% if companie.active %}
+                            <td><span class="badge text-bg-success">Ativo</span></td>
+                          {% else %}
+                            <td><span class="badge text-bg-secondary">Inativo</span></td>
+                          {% endif %}
+                          <td><a href="{% url 'details' companie.id %}" class="btn btn-outline-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar</a></td>
+                        </tr>
+                    {% endfor %}
+                {% endif %}
+             </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <nav aria-label="...">
+      <ul class="pagination justify-content-center fixed-bottom">
+        <li class="page-item disabled">
+          <span class="page-link">Anterior</span>
+        </li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item active" aria-current="page">
+          <span class="page-link">2</span>
+        </li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item">
+          <a class="page-link" href="#">Próxima</a>
+        </li>
+      </ul>
+    </nav>
+{% endblock %}

@@ -1,10 +1,70 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-    <h1>Details</h1>
-</body>
-</html>
+{% extends 'companies/base.html' %}
+{% load static %}
+{% block content %}
+<div class="container container-data">
+  <div class="row">
+    <div class="col col-lg-2">
+      <h4>Dados Cadastrais</h4>
+      <p>Informações cadastrais da empresa cliente.</p>
+    </div>
+    <div class="col">
+      <div class="card card-details">
+        <div class="card-body">
+          {% if companie %}
+          <form class="row g-3">
+            <div class="col col-lg-10">
+              <label for="exampleInputEmail1" class="form-label">Empresa</label>
+              <input type="text" value="{{ companie.name }}" class="form-control" id="exampleInputEmail1" >
+            </div>
+            <div class="col col-lg-2">
+              <label for="exampleInputEmail1" class="form-label">Ativo</label>
+              <select class="form-select" aria-label="Default select example">
+                <option value="True" selected>Sim</option>
+                <option value="False">Não</option>
+              </select>
+            </div>
+          </form>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col col-lg-2">
+      <h4>CNPJs</h4>
+      <p>Cadastro de CNPJs relacionados com a empresa cliente. Arquivos serão associados a um CNPJ durante o upload.</p>
+    </div>
+    <div class="col">
+      <div class="card card-details">
+        <div class="card-body">
+          <div class="card-subtitle mb-2 text-body-secondary d-grid gap-2 d-md-flex justify-content-md-end">
+            <button type="button" class="btn btn-primary"><i class="fa fa-plus" aria-hidden="true"></i> Novo</button>
+          </div>
+          <table class="table">
+             <tbody>
+                {% if cnpjs %}
+                    {% for cnpj in cnpjs %}
+                        <tr>
+                          <td>{{ cnpj.cnpj }}</td>
+                          <td style="width: 26rem;">{{ cnpj.name }}</td>
+                          {% if cnpj.active %}
+                            <td><span class="badge text-bg-success">Ativo</span></td>
+                          {% else %}
+                            <td><span class="badge text-bg-secondary">Inativo</span></td>
+                          {% endif %}
+                          <td><a href="{% url 'details' cnpj.id %}" class="btn btn-outline-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar</a></td>
+                        </tr>
+                    {% endfor %}
+                {% endif %}
+             </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="d-grid gap-2 d-md-block btn-detail">
+  <button type="button" class="btn btn-outline-danger btn-remove">Excluir</button>
+  <button class="btn btn-primary btn-save" type="button">Salvar</button>
+</div>
+{% endblock %}
