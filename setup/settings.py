@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     'companies.apps.CompaniesConfig',
     'accounts.apps.AccountsConfig',
     # APP EXTERNAL
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -42,6 +43,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'setup.urls'
@@ -124,3 +126,9 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CSRF_TRUSTED_ORIGINS = ['https://youtan-production.up.railway.app/']
+CORS_ALLOWED_ORIGINS = [
+    "https://youtan-production.up.railway.app/",
+    "https://api.domain.com",
+    "http://localhost:8080",
+    "http://127.0.0.1:8000"
+]
