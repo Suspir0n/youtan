@@ -1,0 +1,34 @@
+<!-- Modal -->
+<div class="modal fade" id="ModalEditCNPJ" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalCenterTitle">Editando CNPJ</h5>
+        <button type="button" class="btn-close" data-dismiss="modal" aria-hidden="true" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form class="form-update-cnpj" data-title="{{ companie.id }}" method="GET">
+          {% csrf_token %}
+          <div class="mb-3 col col-lg-4">
+            <label for="active" class="form-label">Ativo</label>
+            <select class="form-select" aria-label="Default select example" id="SelectActiveEditCNPJ">
+              <option value="True" selected>Sim</option>
+              <option  value="False">Não</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputCNPJ" class="form-label">CNPJ</label>
+            <input type="text" class="form-control" id="exampleInputCNPJUpdate">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputCompanie" class="form-label">Nome</label>
+            <input type="text" class="form-control" id="exampleInputCompanieUpdate">
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary" id="btnUpdateCNPJ">Salvar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

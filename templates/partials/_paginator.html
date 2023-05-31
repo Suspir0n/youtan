@@ -1,0 +1,43 @@
+ <nav aria-label="...">
+  <ul class="pagination justify-content-center fixed-bottom">
+    {%  if page.has_previous %}
+    <li class="page-item">
+      <a href="{% url 'dashboard' %}?page={{ page.previous_page_number }}" class="page-link">Anterior</a>
+    </li>
+    {% else %}
+    <li class="page-item disabled">
+      <span class="page-link">Anterior</span>
+    </li>
+    {% endif %}
+    {% if page.number == 1 and page.has_next %}
+    <li class="page-item active" aria-current="page"><a class="page-link" href="{% url 'dashboard' %}?page=1">1</a></li>
+      {% if page.has_next %}
+      <li class="page-item"><a class="page-link" href="{% url 'dashboard' %}?page=2">2</a></li>
+      {% endif %}
+      {% if page.num_pages > 2 %}
+      <li class="page-item"><a class="page-link" href="{% url 'dashboard' %}?page=3">3</a></li>
+      {% endif %}
+    {% endif %}
+    {% if page.number == 2 %}
+      <li class="page-item"><a class="page-link" href="{% url 'dashboard' %}?page=1">1</a></li>
+      <li class="page-item active" aria-current="page"><a class="page-link" href="{% url 'dashboard' %}?page=2">2</a></li>
+      {% if page.has_next %}
+      <li class="page-item"><a class="page-link" href="{% url 'dashboard' %}?page=3">3</a></li>
+      {% endif %}
+    {% endif %}
+    {% if page.number == 3 %}
+    <li class="page-item"><a class="page-link" href="{% url 'dashboard' %}?page=1">1</a></li>
+    <li class="page-item"><a class="page-link" href="{% url 'dashboard' %}?page=2">2</a></li>
+    <li class="page-item active" aria-current="page"><a class="page-link" href="{% url 'dashboard' %}?page=3">3</a></li>
+    {% endif %}
+    {% if page.has_next %}
+    <li class="page-item">
+      <a class="page-link" href="{% url 'dashboard' %}?page={{ page.next_page_number }}">Próxima</a>
+    </li>
+    {% else %}
+    <li class="page-item disabled">
+      <span class="page-link">Próxima</span>
+    </li>
+    {% endif %}
+  </ul>
+</nav>

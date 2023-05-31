@@ -3,13 +3,13 @@ from companies.models import CompaniesModels, CompaniesCNPJModels
 import re
 
 
-class CompaniesForms(forms.Form):
+class CompaniesForms(forms.ModelForm):
 
     class Meta:
         model = CompaniesModels
         exclude = ['username']
 
-class CompaniesCNPJForms(forms.Form):
+class CompaniesCNPJForms(forms.ModelForm):
 
     class Meta:
         model = CompaniesCNPJModels

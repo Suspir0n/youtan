@@ -19,7 +19,7 @@
 }
 
 .new {
-    margin-top: 10rem;
+    margin-top: 5rem;
     margin-right: 15rem;
 }
 
@@ -53,6 +53,11 @@
 }
 
 .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+    background-color: #35558D !important;
+    border-color: #35558D !important;
+}
+
+.btn-outline-primary btn-outline-primary:hover, btn-outline-primary:active, btn-outline-primary:visited {
     background-color: #35558D !important;
     border-color: #35558D !important;
 }

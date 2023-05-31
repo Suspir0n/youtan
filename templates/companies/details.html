@@ -11,16 +11,21 @@
       <div class="card card-details">
         <div class="card-body">
           {% if companie %}
-          <form class="row g-3">
+          <form class="row g-3 form-update-companie" data-title="{{ companie.id }}">
             <div class="col col-lg-10">
               <label for="exampleInputEmail1" class="form-label">Empresa</label>
-              <input type="text" value="{{ companie.name }}" class="form-control" id="exampleInputEmail1" >
+              <input type="text" value="{{ companie.name }}" class="form-control" id="exampleInputNameCompanieUpdate" >
             </div>
             <div class="col col-lg-2">
               <label for="exampleInputEmail1" class="form-label">Ativo</label>
-              <select class="form-select" aria-label="Default select example">
-                <option value="True" selected>Sim</option>
+              <select class="form-select" aria-label="Default select example" id="selectActiveCompanieUpdate">
+                {% if companie.active != False %}
+                <option value="{{ companie.active }}" selected>Sim</option>
                 <option value="False">Não</option>
+                {% else %}
+                <option value="{{ companie.active }}" selected>Não</option>
+                <option value="True">Sim</option>
+                {% endif %}
               </select>
             </div>
           </form>
@@ -38,7 +43,7 @@
       <div class="card card-details">
         <div class="card-body">
           <div class="card-subtitle mb-2 text-body-secondary d-grid gap-2 d-md-flex justify-content-md-end">
-            <button type="button" class="btn btn-primary"><i class="fa fa-plus" aria-hidden="true"></i> Novo</button>
+            <a class="btn btn-primary" data-toggle="modal" data-target="#modalCreateCNPJ"><i class="fa fa-plus" aria-hidden="true"></i> Novo</a>
           </div>
           <table class="table">
              <tbody>
@@ -52,7 +57,7 @@
                           {% else %}
                             <td><span class="badge text-bg-secondary">Inativo</span></td>
                           {% endif %}
-                          <td><a href="{% url 'details' cnpj.id %}" class="btn btn-outline-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar</a></td>
+                          <td><a class="btn btn-outline-primary update-cnpj" id="updateCNPJ" data-title="{{ cnpj.id }}" data-toggle="modal" data-target="#ModalEditCNPJ"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar</a></td>
                         </tr>
                     {% endfor %}
                 {% endif %}
@@ -63,8 +68,10 @@
     </div>
   </div>
 </div>
+{% include 'companies/partials/_modal-create-cnpj.html' %}
+{% include 'companies/partials/_modal-edit-cnpj.html' %}
 <div class="d-grid gap-2 d-md-block btn-detail">
-  <button type="button" class="btn btn-outline-danger btn-remove">Excluir</button>
-  <button class="btn btn-primary btn-save" type="button">Salvar</button>
+  <a href="{% url 'delete-companie' companie.id %}" class="btn btn-outline-danger btn-remove">Excluir</a>
+  <button class="btn btn-primary btn-save" id="btnUpdateCompanie" type="submit">Salvar</button>
 </div>
 {% endblock %}

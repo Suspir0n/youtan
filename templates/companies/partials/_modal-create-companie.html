@@ -1,0 +1,30 @@
+<!-- Modal -->
+<div class="modal fade" id="modalCreateCompanie" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalCenterTitle">Criando uma nova empresa</h5>
+        <button type="button" class="btn-close" id="btn-close-modal-companie" data-dismiss="modal" aria-label="Close" aria-hidden="true"></button>
+      </div>
+      <div class="modal-body">
+        <form method="GET">
+          {% csrf_token %}
+          <div class="mb-3 col col-lg-4">
+            <label for="active" class="form-label">Ativo</label>
+            <select class="form-select" aria-label="Default select example" id="activeCompanie" name="select_active_companie">
+              <option value="True" selected>Sim</option>
+              <option value="False">Não</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputCompanie" class="form-label">Nome</label>
+            <input type="text" class="form-control" id="exampleInputCompanie" name="name_companie">
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary btn-companie" id="btn-create-companie">Criar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
